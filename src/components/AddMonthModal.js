@@ -31,18 +31,11 @@ const AddMonthModal = ({ setIsAddMonthModalVisible }) => {
 
   const addMonthHandler = async () => {
     setIsSubmitting(true);
-    console.log(
-      "selectedDate",
-      `${moment(selectedDate).format("MM")}-${moment(selectedDate).format(
-        "yyyy"
-      )}`
-    );
     const querySnapshot = await getDocs(collection(db, "users"));
     const data = [];
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       data.push({ id: doc.id, ...doc.data() });
-      console.log(doc.id, " => ", doc.data());
     });
     try {
       const yearRef = await setDoc(
@@ -64,7 +57,6 @@ const AddMonthModal = ({ setIsAddMonthModalVisible }) => {
       );
     } catch (e) {
       AddedError(e);
-      console.log("error", e);
     }
     setIsSubmitting(false);
   };

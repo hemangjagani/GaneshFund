@@ -18,7 +18,6 @@ const Signin = () => {
       navigate("/dashboard");
     } catch (e) {
       setError(e.message);
-      console.log(e.message);
     }
   };
 

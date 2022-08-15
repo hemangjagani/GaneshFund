@@ -20,7 +20,6 @@ export default function Heder() {
     try {
       await logout();
       navigate("/");
-      console.log("You are logged out");
     } catch (e) {
       console.log(e.message);
     }

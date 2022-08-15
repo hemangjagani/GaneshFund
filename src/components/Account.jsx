@@ -46,7 +46,6 @@ const Account = () => {
             (isAddPersonModalVisible || isAddMonthModalVisible) &&
             "blur(0.8px)",
         }}
-        onClick={() => console.log("red")}
       >
         <Header />
         <Collapse in={open}>

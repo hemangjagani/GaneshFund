@@ -99,13 +99,11 @@ const AddAccountModal = ({ setIsAddPersonModalVisible }) => {
                     );
                     const docSnap = await getDoc(monthsRef);
                     if (docSnap.exists() && docSnap.data()) {
-                      console.log("data------->", docSnap.data());
                       const docRef = await addDoc(collection(db, "users"), {
                         ...values,
                         date: moment(values.date).format("DD-MM-yyyy"),
                       });
                       try {
-                        console.log("docSnap.data()", docSnap.data());
                         const oldData = docSnap.data()?.data;
                         const yearRef = await updateDoc(
                           doc(
@@ -283,7 +281,6 @@ const AddAccountModal = ({ setIsAddPersonModalVisible }) => {
                               inputFormat="dd/MM/yyyy"
                               name="date"
                               onChange={(value) => {
-                                console.log("value", value);
                                 setFieldValue("date", value, true);
                               }}
                               onBlur={() =>

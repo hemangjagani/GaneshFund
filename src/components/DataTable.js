@@ -33,7 +33,6 @@ const DataTable = () => {
       const d = [];
       if (docSnap.exists()) {
         setUserData(docSnap.data()?.data);
-        console.log("New data===>", docSnap.data().data);
       }
     };
     getData();
@@ -49,7 +48,6 @@ const DataTable = () => {
     if (docSnap.exists()) {
       const data = docSnap.data().data || [];
       setUserData(data);
-      console.log("###data", data);
     } else {
       setUserData([]);
     }
@@ -58,7 +56,6 @@ const DataTable = () => {
 
   const paidHandler = async (id, name) => {
     try {
-      console.log("id", id);
       const tempUserData = [...userData];
       const getSelectedIndex = tempUserData.findIndex((data) => data.id === id);
       tempUserData[getSelectedIndex] = {
@@ -81,13 +78,11 @@ const DataTable = () => {
       paidSuccessfully(name);
     } catch (e) {
       AddedError(e);
-      console.log("error", e);
     }
   };
 
   const unPaidHandler = async (id, name) => {
     try {
-      console.log("id", id);
       const tempUserData = [...userData];
       const getSelectedIndex = tempUserData.findIndex((data) => data.id === id);
       tempUserData[getSelectedIndex] = {
@@ -110,7 +105,6 @@ const DataTable = () => {
       unPaidSuccessfully(name);
     } catch (e) {
       AddedError(e);
-      console.log("error", e);
     }
   };
 
@@ -209,7 +203,6 @@ const DataTable = () => {
       label: "Action",
       options: {
         customBodyRender: (value, tableMeta, updateValue) => {
-          console.log("tableMeta", tableMeta?.rowData[5]);
           return (
             <>
               <Button
